@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IdeanaX — AI Assets Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="logo">IDEANA<span class="logo-x">X</span></div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Prompts</a>
+      <a href="#">Tools</a>
+      <a href="#" class="active">Assets</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggleBtn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-primary">Sign In</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>AI <span class="grad-text">Assets</span> Library</h1>
+      <p>Download free editing packs, templates, sound effects, LUTs, overlays and more for your creative projects.</p>
+    </div>
+    <div class="hero-art">
+      <img src="assets/assets-icon.webp" alt="3D icons of asset packs: font, music, video reel and image" class="hero-icon">
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH + FILTER BAR -->
+<section class="search-bar-section">
+  <div class="search-bar-inner">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="assetSearchInput" placeholder="Search assets...">
+    </div>
+    <div class="sort-controls">
+      <select class="sort-select" id="sortSelect">
+        <option>Trending</option>
+        <option>Newest</option>
+        <option>Most Downloaded</option>
+      </select>
+      <div class="view-toggle" id="viewToggle">
+        <button class="view-btn active" data-view="grid" aria-label="Grid view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="view-btn" data-view="list" aria-label="List view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chip-row" id="chipRow">
+    <button class="chip chip-active" data-filter="all">All Assets</button>
+    <button class="chip" data-filter="video">Video</button>
+    <button class="chip" data-filter="audio">Audio</button>
+    <button class="chip" data-filter="images">Images</button>
+    <button class="chip" data-filter="templates">Templates</button>
+    <button class="chip" data-filter="luts">LUTs &amp; Presets</button>
+    <button class="chip" data-filter="overlays">Overlays</button>
+    <button class="chip" data-filter="transitions">Transitions</button>
+    <button class="chip" data-filter="3d">3D &amp; Elements</button>
+    <button class="chip chip-more" id="moreChipBtn">More
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="main-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-block">
+      <div class="sidebar-block-header">
+        <h3>Asset Categories</h3>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+      </div>
+      <ul class="radio-list">
+        <li class="selected" data-radio="all"><span class="radio-dot"></span> All Categories</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="group-title">Video Assets</h3>
+      <ul class="check-list">
+        <li><span class="checkbox"></span> Transitions</li>
+        <li><span class="checkbox"></span> Overlays</li>
+        <li><span class="checkbox"></span> Effects</li>
+        <li><span class="checkbox"></span> Stock Videos</li>
+        <li><span class="checkbox"></span> Motion Graphics</li>
+        <li><span class="checkbox"></span> Green Screen</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="group-title">Audio Assets</h3>
+      <ul class="check-list">
+        <li><span class="checkbox"></span> Sound Effects</li>
+        <li><span class="checkbox"></span> Music Tracks</li>
+        <li><span class="checkbox"></span> Ambience</li>
+        <li><span class="checkbox"></span> Voice Over</li>
+        <li><span class="checkbox"></span> Instrumentals</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="group-title">Image Assets</h3>
+      <ul class="check-list">
+        <li><span class="checkbox"></span> Stock Images</li>
+        <li><span class="checkbox"></span> Textures</li>
+        <li><span class="checkbox"></span> Backgrounds</li>
+        <li><span class="checkbox"></span> Icons</li>
+        <li><span class="checkbox"></span> Illustrations</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="group-title">Presets &amp; LUTs</h3>
+      <ul class="check-list">
+        <li><span class="checkbox"></span> LUTs</li>
+        <li><span class="checkbox"></span> Lightroom Presets</li>
+        <li><span class="checkbox"></span> Photoshop Actions</li>
+        <li><span class="checkbox"></span> Camera Presets</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="group-title">Templates</h3>
+      <ul class="check-list">
+        <li><span class="checkbox"></span> Video Templates</li>
+        <li><span class="checkbox"></span> Thumbnail Templates</li>
+        <li><span class="checkbox"></span> Social Media Templates</li>
+        <li><span class="checkbox"></span> Banner Templates</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-block-header">
+        <h3>Filter By</h3>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+      </div>
+
+      <div class="filter-group">
+        <h4>License</h4>
+        <ul class="check-list">
+          <li><span class="checkbox checkbox-checked"></span> Free</li>
+          <li><span class="checkbox"></span> Premium</li>
+        </ul>
+      </div>
+
+      <div class="filter-group">
+        <h4>File Type</h4>
+        <ul class="check-list filetype-list">
+          <li><span class="checkbox checkbox-checked"></span> All</li>
+          <li><span class="checkbox"></span> MP4</li>
+          <li><span class="checkbox"></span> PNG</li>
+          <li><span class="checkbox"></span> WAV</li>
+          <li><span class="checkbox"></span> MP3</li>
+          <li><span class="checkbox"></span> LUT</li>
+        </ul>
+        <button class="show-more-link" id="showMoreFileType">Show More</button>
+      </div>
+
+      <button class="clear-filters">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+        Clear Filters
+      </button>
+    </div>
+  </aside>
+
+  <!-- ASSET SECTIONS -->
+  <section class="asset-sections" id="assetSections">
+
+    <!-- SOUND EFFECTS -->
+    <div class="asset-row" data-category="audio">
+      <div class="row-header">
+        <h2>Sound Effects</h2>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="card-grid card-grid-4">
+
+        <article class="card audio-card">
+          <div class="card-media wave-media wave-purple">
+            <button class="play-btn" data-playing="false" aria-label="Play preview">
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg>
+            </button>
+            <svg class="waveform" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+            <span class="duration">0:05</span>
+          </div>
+          <div class="card-body">
+            <h3>Whoosh Transition</h3>
+            <p>Crisp whoosh for modern edits</p>
+            <div class="tag-row">
+              <span class="mini-tag">Whoosh</span>
+              <span class="mini-tag">Cinematic</span>
+            </div>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 45.2K</span>
+              <button class="bookmark-flat" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card audio-card">
+          <div class="card-media wave-media wave-cyan">
+            <button class="play-btn" data-playing="false" aria-label="Play preview">
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg>
+            </button>
+            <svg class="waveform" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+            <span class="duration">0:02</span>
+          </div>
+          <div class="card-body">
+            <h3>Magic Spell</h3>
+            <p>Fantasy magic sound effect</p>
+            <div class="tag-row">
+              <span class="mini-tag">Magic</span>
+              <span class="mini-tag">Fantasy</span>
+            </div>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 32.1K</span>
+              <button class="bookmark-flat" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card audio-card">
+          <div class="card-media wave-media wave-orange">
+            <button class="play-btn" data-playing="false" aria-label="Play preview">
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg>
+            </button>
+            <svg class="waveform" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+            <span class="duration">0:03</span>
+          </div>
+          <div class="card-body">
+            <h3>Explosion Heavy</h3>
+            <p>Powerful explosion impact</p>
+            <div class="tag-row">
+              <span class="mini-tag">Impact</span>
+              <span class="mini-tag">Action</span>
+            </div>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 28.7K</span>
+              <button class="bookmark-flat" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card audio-card">
+          <div class="card-media wave-media wave-green">
+            <button class="play-btn" data-playing="false" aria-label="Play preview">
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg>
+            </button>
+            <svg class="waveform" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+            <span class="duration">1:30</span>
+          </div>
+          <div class="card-body">
+            <h3>Forest Ambience</h3>
+            <p>Relaxing forest background</p>
+            <div class="tag-row">
+              <span class="mini-tag">Nature</span>
+              <span class="mini-tag">Ambient</span>
+            </div>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 19.8K</span>
+              <button class="bookmark-flat" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- LUTS & PRESETS -->
+    <div class="asset-row" data-category="luts">
+      <div class="row-header">
+        <h2>LUTs &amp; Presets</h2>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="card-grid card-grid-4">
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-lut">LUT</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=500&q=80" alt="Warrior silhouette graded with cinematic teal-orange LUT">
+          </div>
+          <div class="card-body">
+            <h3>Cinematic Teal Orange</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 61.3K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-lut">LUT</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80" alt="Moody dark city street graded with dark moody LUT">
+          </div>
+          <div class="card-body">
+            <h3>Dark Moody</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 48.9K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-lut">LUT</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Mountain sunset graded with warm sunset vibes LUT">
+          </div>
+          <div class="card-body">
+            <h3>Sunset Vibes</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 37.2K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-preset">PRESET</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&q=80" alt="Urban night street graded with night preset">
+          </div>
+          <div class="card-body">
+            <h3>Urban Night</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 29.1K</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- VIDEO OVERLAYS -->
+    <div class="asset-row" data-category="overlays">
+      <div class="row-header">
+        <h2>Video Overlays</h2>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="card-grid card-grid-4">
+
+        <article class="card visual-card">
+          <div class="card-media dark-media">
+            <span class="badge badge-overlay">Overlay</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=500&q=80" alt="Film dirt and scratch overlay texture">
+          </div>
+          <div class="card-body">
+            <h3>Film Dirt Overlays</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 54.2K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media dark-media">
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1517056338492-c3f7e08c69a1?w=500&q=80" alt="Light leak streak overlay on black background">
+          </div>
+          <div class="card-body">
+            <h3>Light Leaks Pack</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 46.8K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media dark-media">
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=80" alt="Orange sparks overlay on dark background">
+          </div>
+          <div class="card-body">
+            <h3>Sparks Overlay</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 33.5K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media dark-media">
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1487621167305-5d248087c724?w=500&q=80" alt="White smoke overlay on dark background">
+          </div>
+          <div class="card-body">
+            <h3>Smoke Overlay</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 27.4K</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- TRANSITIONS -->
+    <div class="asset-row" data-category="transitions">
+      <div class="row-header">
+        <h2>Transitions</h2>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="card-grid card-grid-4">
+
+        <article class="card visual-card">
+          <div class="card-media gradient-media grad-1">
+            <span class="badge badge-4k">4K</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <div class="transition-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3>Zoom Blur</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 51.7K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media gradient-media grad-2">
+            <span class="badge badge-4k">4K</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <div class="transition-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3>Warp Transition</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 38.6K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media gradient-media grad-3">
+            <span class="badge badge-4k">4K</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <div class="transition-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3>Glitch Distortion</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 42.1K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media gradient-media grad-4">
+            <span class="badge badge-4k">4K</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <div class="transition-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3>Liquid Swipe</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 31.2K</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- TEMPLATES -->
+    <div class="asset-row" data-category="templates">
+      <div class="row-header">
+        <h2>Templates</h2>
+        <a href="#" class="view-all">View All</a>
+      </div>
+      <div class="card-grid card-grid-4">
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-thumbnail">Thumbnail</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="YouTube thumbnail template mockup">
+            <div class="play-overlay"><svg width="34" height="34" viewBox="0 0 24 24" fill="white"><polygon points="6 4 20 12 6 20"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3>YouTube Thumbnail Pack</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 62.7K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-social">Social Media</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=500&q=80" alt="Instagram post template mockup">
+          </div>
+          <div class="card-body">
+            <h3>Instagram Post Pack</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 41.3K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-video">Video</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80" alt="YouTube intro template with glowing text mockup">
+          </div>
+          <div class="card-body">
+            <h3>YouTube Intro Templates</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 58.6K</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card visual-card">
+          <div class="card-media">
+            <span class="badge badge-video">Video</span>
+            <button class="dl-icon-btn" aria-label="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=500&q=80" alt="Reels and shorts vertical template pack mockup">
+          </div>
+          <div class="card-body">
+            <h3>Reels / Shorts Pack</h3>
+            <div class="card-footer">
+              <span class="dl-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 36.9K</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="load-more-wrap">
+      <button class="load-more-btn" id="loadMoreBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        Load More Assets
+      </button>
+    </div>
+
+  </section>
+</main>
+
+<!-- FEATURE STRIP -->
+<section class="feature-strip">
+  <div class="feature-strip-inner">
+    <div class="feature-item">
+      <div class="feature-icon">🛡️</div>
+      <div>
+        <h4>100% Free to Use</h4>
+        <p>All assets are free for personal and commercial use.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">💎</div>
+      <div>
+        <h4>High Quality</h4>
+        <p>Carefully curated high quality assets for creators.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">⬇️</div>
+      <div>
+        <h4>Easy Download</h4>
+        <p>One click download. No sign up required.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔔</div>
+      <div>
+        <h4>Regular Updates</h4>
+        <p>New assets added weekly. Stay updated!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <div class="logo">IDEANA<span class="logo-x">X</span></div>
+      <p>Your ultimate hub for AI prompts, tools, assets and creator resources.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="Discord">◆</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#">Prompts</a>
+      <a href="#">Tools</a>
+      <a href="#" class="footer-active">Assets</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Asset Categories</h4>
+      <a href="#">Video Assets</a>
+      <a href="#">Audio Assets</a>
+      <a href="#">Image Assets</a>
+      <a href="#">Presets &amp; LUTs</a>
+      <a href="#">Templates</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Tutorials</a>
+      <a href="#">Free Guides</a>
+      <a href="#">AI News</a>
+      <a href="#">Help Center</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Ideanax. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
