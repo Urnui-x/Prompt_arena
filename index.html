@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IdeanaX — Discover AI Prompts & Creator Resources</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="logo">IDEANA<span class="logo-x">X</span></div>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">Prompts</a>
+      <a href="#">Tools</a>
+      <a href="#">Assets</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-primary">Sign In</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Discover AI Prompts &amp;<br><span class="grad-text">Creator Resources</span></h1>
+  <p>Explore thousands of AI prompts, free tools and premium resources to boost your creativity.</p>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar-section">
+    <div class="search-bar-inner">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="mainSearchInput" placeholder="Search prompts, tools, assets...">
+      </div>
+      <button class="filter-btn" aria-label="Filters">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CHIP FILTER ROW -->
+<div class="chip-row" id="chipRow">
+  <button class="chip chip-active" data-filter="all">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    All
+  </button>
+  <button class="chip" data-filter="video">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    Video Prompts
+  </button>
+  <button class="chip" data-filter="image">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    Image Prompts
+  </button>
+  <button class="chip" data-filter="writing">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    Writing Prompts
+  </button>
+  <button class="chip" data-filter="marketing">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    Marketing
+  </button>
+  <button class="chip" data-filter="horror">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    Horror
+  </button>
+  <button class="chip" data-filter="reels">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+    Reels
+  </button>
+  <button class="chip chip-more" id="moreChipBtn">
+    More
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</div>
+
+<!-- CARDS GRID -->
+<section class="cards-section" id="cardsSection">
+  <div class="card-grid" id="cardGrid">
+
+    <!-- 1: Horror Story Prompt -->
+    <article class="card" data-filter="horror" data-title="Horror Story Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&q=80" alt="Haunted house under moonlight">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Horror Story Prompt</h3>
+        <p>Create a terrifying 60-second horror video with suspense...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 2.4k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2: Cinematic Video Prompt -->
+    <article class="card" data-filter="video" data-title="Cinematic Video Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Warrior standing on cliff at sunset">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Cinematic Video Prompt</h3>
+        <p>Epic cinematic scene of a warrior standing on a cliff...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 3.1k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3: Cinematic SFX Pack (ASSET) -->
+    <article class="card" data-filter="all" data-title="Cinematic SFX Pack">
+      <div class="card-media" style="background:#0d0d12;display:flex;align-items:center;justify-content:center;">
+        <span class="badge badge-asset">ASSET</span>
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:13px;font-weight:800;color:#d97706;letter-spacing:1px;line-height:1.3;">CINEMATIC<br>SOUND EFFECTS<br>PACK</div>
+        </div>
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Cinematic SFX Pack</h3>
+        <p>100+ high quality cinematic sound effects.</p>
+        <div class="card-footer">
+          <span class="stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            12.6k
+          </span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4: AI Thumbnail Prompt -->
+    <article class="card" data-filter="image" data-title="AI Thumbnail Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80" alt="Futuristic cyberpunk cityscape">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>AI Thumbnail Prompt</h3>
+        <p>Create a high CTR YouTube thumbnail with dramatic...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 2.8k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5: Top Free AI Tools (TOOL) -->
+    <article class="card" data-filter="all" data-title="Top Free AI Tools">
+      <div class="tool-media">
+        <span class="badge badge-tool" style="position:relative;top:auto;left:auto;margin-bottom:4px;display:inline-block;">TOOL</span>
+        <div class="tool-icon-slot">🤖</div>
+        <div class="tool-icon-slot">⛵</div>
+        <div class="tool-icon-slot">🔍</div>
+        <div class="tool-icon-slot">🎨</div>
+        <div class="tool-icon-slot">⚡</div>
+        <div class="tool-icon-slot">🎯</div>
+      </div>
+      <div class="card-body">
+        <h3>Top Free AI Tools</h3>
+        <p>Collection of the best free AI tools for creators.</p>
+        <a class="tool-link" href="#">View Collection <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </article>
+
+    <!-- 6: Mythology Prompt -->
+    <article class="card" data-filter="video" data-title="Mythology Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80" alt="Epic mythology god with lightning">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Mythology Prompt</h3>
+        <p>Create an epic mythology scene with gods and warriors...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 2.2k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7: 50 Premium LUTs (ASSET) -->
+    <article class="card" data-filter="all" data-title="50 Premium LUTs">
+      <div class="card-media" style="background:linear-gradient(135deg,#1e1b4b,#312e81 60%,#7c3aed);display:flex;align-items:center;justify-content:center;">
+        <span class="badge badge-asset">ASSET</span>
+        <div style="text-align:center;">
+          <div style="font-size:42px;font-weight:900;color:#f97316;line-height:1;">50</div>
+          <div style="font-size:13px;font-weight:800;color:#fff;letter-spacing:2px;">PREMIUM<br>LUTS</div>
+        </div>
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>50 Premium LUTs</h3>
+        <p>Professional LUTs for color grading your videos.</p>
+        <div class="card-footer">
+          <span class="stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            9.3k
+          </span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8: Faceless YouTube Prompt -->
+    <article class="card" data-filter="video" data-title="Faceless YouTube Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?w=600&q=80" alt="Faceless person looking at city lights">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Faceless YouTube Prompt</h3>
+        <p>Create a faceless YouTube video script and visuals...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 3.6k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9: Transition Pack (ASSET) -->
+    <article class="card" data-filter="all" data-title="Transition Pack">
+      <div class="card-media" style="background:linear-gradient(135deg,#4c1d95,#db2777 130%);display:flex;align-items:center;justify-content:center;">
+        <span class="badge badge-asset">ASSET</span>
+        <div style="text-align:center;">
+          <div style="font-size:18px;font-weight:900;color:#fff;letter-spacing:2px;">TRANSITION<br>PACK</div>
+        </div>
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Transition Pack</h3>
+        <p>Smooth transitions for professional editing.</p>
+        <div class="card-footer">
+          <span class="stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            7.8k
+          </span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10: Sci-Fi Video Prompt -->
+    <article class="card" data-filter="video" data-title="Sci-Fi Video Prompt">
+      <div class="card-media">
+        <span class="badge badge-prompt">PROMPT</span>
+        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80" alt="Sci-fi space galaxy exploration">
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Sci-Fi Video Prompt</h3>
+        <p>Futuristic scene of space exploration and planets...</p>
+        <div class="card-footer">
+          <span class="stat"><svg class="stat-heart" width="13" height="13" viewBox="0 0 24 24" fill="#f43f5e" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 2.5k</span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11: Canva (TOOL) -->
+    <article class="card" data-filter="all" data-title="Canva">
+      <div class="tool-media" style="background:linear-gradient(135deg,#042f2e,#115e59);display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;">
+        <span class="badge badge-tool" style="position:absolute;top:10px;left:10px;">TOOL</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Canva_Logo.svg/320px-Canva_Logo.svg.png" alt="Canva logo" style="width:90px;height:auto;filter:brightness(0) invert(1);">
+      </div>
+      <div class="card-body">
+        <h3>Canva</h3>
+        <p>Design anything with Canva for free.</p>
+        <a class="tool-link" href="#">Visit Tool <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </article>
+
+    <!-- 12: Audio Preset Pack (ASSET) -->
+    <article class="card" data-filter="all" data-title="Audio Preset Pack">
+      <div class="card-media" style="background:linear-gradient(160deg,#042f2e,#115e59);display:flex;align-items:center;justify-content:center;position:relative;">
+        <span class="badge badge-asset">ASSET</span>
+        <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" style="width:85%;height:60%;position:relative;z-index:1;">
+          <g id="wave"></g>
+        </svg>
+        <button class="bookmark-flat" aria-label="Save">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>Audio Preset Pack</h3>
+        <p>Premium audio presets for clear and professional sound.</p>
+        <div class="card-footer">
+          <span class="stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            6.1k
+          </span>
+          <button class="bookmark-flat" style="position:static;background:transparent;backdrop-filter:none;" aria-label="Save">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /.card-grid -->
+
+  <!-- LOAD MORE -->
+  <div class="load-more-wrap">
+    <button class="load-more-btn" id="loadMoreBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Load More
+    </button>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <div class="logo">IDEANA<span class="logo-x">X</span></div>
+      <p>Your ultimate hub for AI prompts, free tools, and creator resources. All in one place.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="Discord">◆</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#" class="footer-active">Prompts</a>
+      <a href="#">Tools</a>
+      <a href="#">Assets</a>
+      <a href="#">Blog</a>
+      <a href="#">Trending</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#">Video Prompts</a>
+      <a href="#">Image Prompts</a>
+      <a href="#">Writing Prompts</a>
+      <a href="#">Marketing Prompts</a>
+      <a href="#">Horror Prompts</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Free Editing Packs</a>
+      <a href="#">LUTs &amp; Presets</a>
+      <a href="#">Sound Effects</a>
+      <a href="#">Templates</a>
+      <a href="#">Guides</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Ideanax. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
